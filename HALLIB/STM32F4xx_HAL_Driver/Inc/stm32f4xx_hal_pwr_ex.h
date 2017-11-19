@@ -136,7 +136,7 @@
                                                             /* Delay after an RCC peripheral clock enabling */  \
                                                             tmpreg = READ_BIT(PWR->CR, PWR_CR_VOS);             \
                                                             UNUSED(tmpreg);                                     \
-				                           } while(0)
+                                       } while(0)
 #else
 /** @brief  macros configure the main internal regulator output voltage.
   * @param  __REGULATOR__: specifies the regulator output voltage to achieve
@@ -154,7 +154,7 @@
                                                             /* Delay after an RCC peripheral clock enabling */  \
                                                             tmpreg = READ_BIT(PWR->CR, PWR_CR_VOS);             \
                                                             UNUSED(tmpreg);                                     \
-				                           } while(0)
+                                       } while(0)
 #endif /* STM32F405xx || STM32F407xx || STM32F415xx || STM32F417xx */ 
 
 #if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) ||\

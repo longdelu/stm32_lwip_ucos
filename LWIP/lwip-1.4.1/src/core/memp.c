@@ -334,14 +334,14 @@ memp_overflow_init(void)
 //得到memp_memory数组大小
 u32_t memp_get_memorysize(void)
 {
-	u32_t length=0;
-	length=(
-			MEM_ALIGNMENT-1 //全局型数组 为所有POOL分配的内存空间
-			//MEMP_SIZE表示需要在每个POOL头部预留的空间  MEMP_SIZE = 0
-			#define LWIP_MEMPOOL(name,num,size,desc)+((num)*(MEMP_SIZE+MEMP_ALIGN_SIZE(size)))
-			#include "lwip/memp_std.h"
-			);
-	return length;
+   u32_t length=0;
+   length=(
+         MEM_ALIGNMENT-1 //全局型数组 为所有POOL分配的内存空间
+         //MEMP_SIZE表示需要在每个POOL头部预留的空间  MEMP_SIZE = 0
+         #define LWIP_MEMPOOL(name,num,size,desc)+((num)*(MEMP_SIZE+MEMP_ALIGN_SIZE(size)))
+         #include "lwip/memp_std.h"
+         );
+   return length;
 }
 
 /**

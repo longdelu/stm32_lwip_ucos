@@ -170,7 +170,7 @@ __Vectors       DCD     __initial_sp               ; Top of Stack
                 DCD     OTG_HS_WKUP_IRQHandler            ; USB OTG HS Wakeup through EXTI                         
                 DCD     OTG_HS_IRQHandler                 ; USB OTG HS                                      
                 DCD     DCMI_IRQHandler                   ; DCMI  
-                DCD     0                          ; Reserved				                              
+                DCD     0                          ; Reserved                                          
                 DCD     HASH_RNG_IRQHandler               ; Hash and Rng
                 DCD     FPU_IRQHandler                    ; FPU
                 DCD     UART7_IRQHandler                  ; UART7
@@ -197,8 +197,8 @@ Reset_Handler    PROC
 
                  LDR     R0, =SystemInit
                  BLX     R0
-				 
-		         IF {FPU} != "SoftVFP"
+             
+               IF {FPU} != "SoftVFP"
                                                 ; Enable Floating Point Support at reset for FPU
                  LDR.W   R0, =0xE000ED88         ; Load address of CPACR register
                  LDR     R1, [R0]                ; Read value at CPACR
@@ -215,7 +215,7 @@ Reset_Handler    PROC
                  STR     R1, [R0]
                  ISB                             ; Reset pipeline now the FPU is enabled
                  ENDIF
-				 
+             
                  LDR     R0, =__main
                  BX      R0
                  ENDP

@@ -1,17 +1,17 @@
 #include "sdram.h"
 #include "delay.h"
-//////////////////////////////////////////////////////////////////////////////////	 
+//////////////////////////////////////////////////////////////////////////////////    
 //本程序只供学习使用，未经作者许可，不得用于其它任何用途
 //ALIENTEK STM32F429开发板
-//SDRAM驱动代码	   
+//SDRAM驱动代码      
 //正点原子@ALIENTEK
 //技术论坛:www.openedv.com
 //创建日期:2016/1/6
 //版本：V1.0
 //版权所有，盗版必究。
 //Copyright(C) 广州市星翼电子科技有限公司 2014-2024
-//All rights reserved									  
-////////////////////////////////////////////////////////////////////////////////// 	
+//All rights reserved                             
+//////////////////////////////////////////////////////////////////////////////////    
 SDRAM_HandleTypeDef SDRAM_Handler;   //SDRAM句柄
 
 //SDRAM初始化
@@ -47,20 +47,20 @@ void SDRAM_Init(void)
     SDRAM_Send_Cmd(0,FMC_SDRAM_CMD_PALL,1,0);       //对所有存储区预充电
     SDRAM_Send_Cmd(0,FMC_SDRAM_CMD_AUTOREFRESH_MODE,8,0);//设置自刷新次数 
     //配置模式寄存器,SDRAM的bit0~bit2为指定突发访问的长度，
-	//bit3为指定突发访问的类型，bit4~bit6为CAS值，bit7和bit8为运行模式
-	//bit9为指定的写突发模式，bit10和bit11位保留位
-	temp=(u32)SDRAM_MODEREG_BURST_LENGTH_1          |	//设置突发长度:1(可以是1/2/4/8)
-              SDRAM_MODEREG_BURST_TYPE_SEQUENTIAL   |	//设置突发类型:连续(可以是连续/交错)
-              SDRAM_MODEREG_CAS_LATENCY_3           |	//设置CAS值:3(可以是2/3)
+   //bit3为指定突发访问的类型，bit4~bit6为CAS值，bit7和bit8为运行模式
+   //bit9为指定的写突发模式，bit10和bit11位保留位
+   temp=(u32)SDRAM_MODEREG_BURST_LENGTH_1          |   //设置突发长度:1(可以是1/2/4/8)
+              SDRAM_MODEREG_BURST_TYPE_SEQUENTIAL   |   //设置突发类型:连续(可以是连续/交错)
+              SDRAM_MODEREG_CAS_LATENCY_3           |   //设置CAS值:3(可以是2/3)
               SDRAM_MODEREG_OPERATING_MODE_STANDARD |   //设置操作模式:0,标准模式
               SDRAM_MODEREG_WRITEBURST_MODE_SINGLE;     //设置突发写模式:1,单点访问
     SDRAM_Send_Cmd(0,FMC_SDRAM_CMD_LOAD_MODE,1,temp);   //设置SDRAM的模式寄存器
     
     //刷新频率计数器(以SDCLK频率计数),计算方法:
-	//COUNT=SDRAM刷新周期/行数-20=SDRAM刷新周期(us)*SDCLK频率(Mhz)/行数
+   //COUNT=SDRAM刷新周期/行数-20=SDRAM刷新周期(us)*SDCLK频率(Mhz)/行数
     //我们使用的SDRAM刷新周期为64ms,SDCLK=180/2=90Mhz,行数为8192(2^13).
-	//所以,COUNT=64*1000*90/8192-20=683
-	HAL_SDRAM_ProgramRefreshRate(&SDRAM_Handler,683);
+   //所以,COUNT=64*1000*90/8192-20=683
+   HAL_SDRAM_ProgramRefreshRate(&SDRAM_Handler,683);
 }
 
 //SDRAM底层驱动，引脚配置，时钟使能
@@ -137,12 +137,12 @@ u8 SDRAM_Send_Cmd(u8 bankx,u8 cmd,u8 refresh,u16 regval)
 //n:要写入的字节数
 void FMC_SDRAM_WriteBuffer(u8 *pBuffer,u32 WriteAddr,u32 n)
 {
-	for(;n!=0;n--)
-	{
-		*(vu8*)(Bank5_SDRAM_ADDR+WriteAddr)=*pBuffer;
-		WriteAddr++;
-		pBuffer++;
-	}
+   for(;n!=0;n--)
+   {
+      *(vu8*)(Bank5_SDRAM_ADDR+WriteAddr)=*pBuffer;
+      WriteAddr++;
+      pBuffer++;
+   }
 }
 
 //在指定地址((WriteAddr+Bank5_SDRAM_ADDR))开始,连续读出n个字节.
@@ -151,9 +151,9 @@ void FMC_SDRAM_WriteBuffer(u8 *pBuffer,u32 WriteAddr,u32 n)
 //n:要写入的字节数
 void FMC_SDRAM_ReadBuffer(u8 *pBuffer,u32 ReadAddr,u32 n)
 {
-	for(;n!=0;n--)
-	{
-		*pBuffer++=*(vu8*)(Bank5_SDRAM_ADDR+ReadAddr);
-		ReadAddr++;
-	}
+   for(;n!=0;n--)
+   {
+      *pBuffer++=*(vu8*)(Bank5_SDRAM_ADDR+ReadAddr);
+      ReadAddr++;
+   }
 }

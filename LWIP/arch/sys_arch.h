@@ -41,8 +41,8 @@
 #define SYS_ARCH_EXT extern
 #endif
  
-#define MAX_QUEUES        		10	// 消息邮箱的数量
-#define MAX_QUEUE_ENTRIES 		20	// 每个消息邮箱的大小
+#define MAX_QUEUES              10   // 消息邮箱的数量
+#define MAX_QUEUE_ENTRIES       20   // 每个消息邮箱的大小
 
 //LWIP消息邮箱结构体
 typedef struct {
@@ -52,7 +52,7 @@ typedef struct {
 
 
 typedef OS_EVENT *sys_sem_t;    //LWIP使用的信号量
-typedef OS_EVENT *sys_mutex_t; 	//LWIP使用的互斥信号量
+typedef OS_EVENT *sys_mutex_t;    //LWIP使用的互斥信号量
 typedef PQ_DESCR sys_mbox_t;    //LWIP使用的消息邮箱,其实就是UCOS中的消息队列
 typedef INT8U sys_thread_t;     //线程ID,也就是任务优先级
 #endif 

@@ -126,7 +126,7 @@ typedef struct
                                               This mode is available only for the STM32F446/469/479xx devices                    */
 
   uint32_t PageSize;                     /*!< Specifies the memory page size.
-                                              This parameter can be a value of @ref FMC_Page_Size                       */											  
+                                              This parameter can be a value of @ref FMC_Page_Size                       */                                   
 
 }FMC_NORSRAM_InitTypeDef;
 
@@ -512,7 +512,7 @@ typedef struct
 /**
   * @}
   */
-	
+   
 /** @defgroup FMC_Access_Mode FMC Access Mode 
   * @{
   */
@@ -1164,10 +1164,10 @@ typedef struct
 #define IS_FMC_WAIT_POLARITY(__POLARITY__) (((__POLARITY__) == FMC_WAIT_SIGNAL_POLARITY_LOW) || \
                                              ((__POLARITY__) == FMC_WAIT_SIGNAL_POLARITY_HIGH))
 
-#if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx)											 
+#if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx)                                  
 #define IS_FMC_WRAP_MODE(__MODE__) (((__MODE__) == FMC_WRAP_MODE_DISABLE) || \
                                     ((__MODE__) == FMC_WRAP_MODE_ENABLE))
-#endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx */								 
+#endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx */                         
 
 #define IS_FMC_WAIT_SIGNAL_ACTIVE(__ACTIVE__) (((__ACTIVE__) == FMC_WAIT_TIMING_BEFORE_WS) || \
                                                 ((__ACTIVE__) == FMC_WAIT_TIMING_DURING_WS)) 
@@ -1274,7 +1274,7 @@ typedef struct
 
 #define IS_FMC_WRITE_PROTECTION(WRITE) (((WRITE) == FMC_SDRAM_WRITE_PROTECTION_DISABLE) || \
                                         ((WRITE) == FMC_SDRAM_WRITE_PROTECTION_ENABLE))
-										
+                              
 #define IS_FMC_PAGESIZE(SIZE) (((SIZE) == FMC_PAGE_SIZE_NONE) || \
                                ((SIZE) == FMC_PAGE_SIZE_128)  || \
                                ((SIZE) == FMC_PAGE_SIZE_256)  || \
@@ -1284,7 +1284,7 @@ typedef struct
 #if defined (STM32F446xx) || defined(STM32F469xx) || defined(STM32F479xx)
 #define IS_FMC_WRITE_FIFO(FIFO) (((FIFO) == FMC_WRITE_FIFO_DISABLE) || \
                                  ((FIFO) == FMC_WRITE_FIFO_ENABLE))
-#endif /* STM32F446xx || STM32F469xx || STM32F479xx */									 
+#endif /* STM32F446xx || STM32F469xx || STM32F479xx */                            
 
 /**
   * @}
