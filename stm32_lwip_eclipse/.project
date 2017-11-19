@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>copy_PARENT</name>
+	<name>stm32_lwip_ucos</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -28,47 +28,53 @@
 		<link>
 			<name>CORE</name>
 			<type>2</type>
-			<locationURI>PARENT-1-PROJECT_LOC/CORE</locationURI>
+			<locationURI>copy_PARENT/CORE</locationURI>
 		</link>
 		<link>
 			<name>HALLIB</name>
 			<type>2</type>
-			<locationURI>PARENT-1-PROJECT_LOC/HALLIB</locationURI>
+			<locationURI>copy_PARENT/HALLIB</locationURI>
 		</link>
 		<link>
 			<name>HARDWARE</name>
 			<type>2</type>
-			<locationURI>PARENT-1-PROJECT_LOC/HARDWARE</locationURI>
+			<locationURI>copy_PARENT/HARDWARE</locationURI>
 		</link>
 		<link>
 			<name>LWIP</name>
 			<type>2</type>
-			<locationURI>PARENT-1-PROJECT_LOC/LWIP</locationURI>
+			<locationURI>copy_PARENT/LWIP</locationURI>
 		</link>
 		<link>
 			<name>MALLOC</name>
 			<type>2</type>
-			<locationURI>PARENT-1-PROJECT_LOC/MALLOC</locationURI>
+			<locationURI>copy_PARENT/MALLOC</locationURI>
 		</link>
 		<link>
 			<name>SYSTEM</name>
 			<type>2</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SYSTEM</locationURI>
+			<locationURI>copy_PARENT/SYSTEM</locationURI>
 		</link>
 		<link>
 			<name>UCOSII</name>
 			<type>2</type>
-			<locationURI>PARENT-1-PROJECT_LOC/UCOSII</locationURI>
+			<locationURI>copy_PARENT/UCOSII</locationURI>
 		</link>
 		<link>
-			<name>USER</name>
+			<name>USER_TEMPLATE</name>
 			<type>2</type>
-			<locationURI>PARENT-1-PROJECT_LOC/USER</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/USER_TEMPLATE</locationURI>
 		</link>
 		<link>
 			<name>USMART</name>
 			<type>2</type>
-			<locationURI>PARENT-1-PROJECT_LOC/USMART</locationURI>
+			<locationURI>copy_PARENT/USMART</locationURI>
 		</link>
 	</linkedResources>
+	<variableList>
+		<variable>
+			<name>copy_PARENT</name>
+			<value>$%7BPARENT-1-ECLIPSE_HOME%7D/stm32_lwip_ucos</value>
+		</variable>
+	</variableList>
 </projectDescription>

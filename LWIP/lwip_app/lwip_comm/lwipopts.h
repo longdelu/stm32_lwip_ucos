@@ -1,5 +1,5 @@
-#ifndef __LWIPOPTS_H__
-#define __LWIPOPTS_H__
+#ifndef __LWIP_OPTS_H__
+#define __LWIP_OPTS_H__
 
 //线程优先级
 #ifndef TCPIP_THREAD_PRIO
@@ -102,5 +102,5 @@
 #define LWIP_DEBUG                    	 0	 //关闭DEBUG选项
 #define ICMP_DEBUG                      LWIP_DBG_OFF //开启/关闭ICMPdebug
 
-#endif /* __LWIPOPTS_H__ */
+#endif /* __LWIP_OPTS_H__ */
 

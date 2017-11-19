@@ -168,7 +168,7 @@ static struct pbuf * low_level_input(struct netif *netif)
     INTX_ENABLE();
     return p;
 }
-//网卡接收数据(lwip直接调用) 
+//网卡接收数据(lwip直接调用)
 //netif:网卡结构体指针
 //返回值:ERR_OK,发送正常
 //       ERR_MEM,发送失败
