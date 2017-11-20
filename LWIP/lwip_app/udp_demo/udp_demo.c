@@ -52,13 +52,13 @@ void udp_demo_init(void)
 
    struct ip_addr   server_ipaddr;  	//开发板本地(ip)服务器ip地址
 
-   IP4_ADDR(&server_ipaddr,lwipdev.ip[0],lwipdev.ip[1],lwipdev.ip[2],lwipdev.ip[3]);
+//   IP4_ADDR(&server_ipaddr,lwipdev.ip[0],lwipdev.ip[1],lwipdev.ip[2],lwipdev.ip[3]);
 
    /* 创建UDP控制块 */
    udp_pcb = udp_new();
    
    /* 开发板作为服务器，绑定到一个熟知的端口(echo端口) */
-   udp_bind(udp_pcb, &server_ipaddr, UDP_DEMO_PORT);
+   udp_bind(udp_pcb, IP_ADDR_ANY, UDP_DEMO_PORT);
 
    /* 注册UDP服务器接收回调函数 */
    udp_recv(udp_pcb, __udp_demo_recv_callback, NULL);
