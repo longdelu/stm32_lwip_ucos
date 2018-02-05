@@ -23,7 +23,7 @@
 ////////////////////////////////////////////////////////////////////////////////// 	   
  
 #define UDP_DEMO_RX_BUFSIZE		2000	//定义udp最大接收数据长度 
-#define UDP_DEMO_PORT			7	    //定义udp连接的服务器端口 号
+#define UDP_DEMO_PORT			7	    //定义udp连接的服务器端口号
 
 
 //UDP测试

@@ -238,6 +238,33 @@ void lwip_dhcp_task(void *pdata)
       }  
       delay_ms(250); //延时250ms
    }
+
    lwip_comm_dhcp_delete();//删除DHCP任务 
 }
 #endif 
+
+
+////LWIP轮询任务
+//void lwip_periodic_handle(void)
+//{
+//    sys_check_timeouts();	
+//#if LWIP_DHCP //如果使用DHCP的话
+//  //每500ms调用一次dhcp_fine_tmr()
+//  if (lwip_localtime - DHCPfineTimer >= DHCP_FINE_TIMER_MSECS)
+//  {
+//    DHCPfineTimer =  lwip_localtime;
+//    dhcp_fine_tmr();
+//    if ((lwipdev.dhcpstatus != 2)&&(lwipdev.dhcpstatus != 0XFF))
+//    { 
+//      lwip_dhcp_process_handle();  //DHCP处理
+//    }
+//  }
+
+//  //每60s执行一次DHCP粗糙处理
+//  if (lwip_localtime - DHCPcoarseTimer >= DHCP_COARSE_TIMER_MSECS)
+//  {
+//    DHCPcoarseTimer =  lwip_localtime;
+//    dhcp_coarse_tmr();
+//  }  
+//#endif
+//}

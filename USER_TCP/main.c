@@ -13,7 +13,7 @@
 #include "lwip/netif.h"
 #include "lwip_comm.h"
 #include "lwipopts.h"
-#include "udp_demo.h" 
+#include "tcp_demo.h" 
 /************************************************
  ALIENTEK 阿波罗STM32F429网络实验2
  LWIP带UCOSII系统移植
@@ -37,13 +37,13 @@ void display_task(void *pdata);
 
 //udp服务器函数任务
 //任务优先级
-#define  UDP_TASK_PRIO      1
+#define  TCP_CLIENT_TASK_PRIO      1
 //任务堆栈大小
 #define UDP_STK_SIZE      1024
 //任务堆栈
-OS_STK   UDP_TASK_STK[UDP_STK_SIZE];
+OS_STK   TCP_CLIENT_TASK_STK[UDP_STK_SIZE];
 //任务函数
-void udp_task(void *pdata);  
+void tcp_client_task(void *pdata);  
 
 
 //START任务
@@ -138,7 +138,7 @@ void display_task(void *pdata)
       {
          show_address(lwipdev.dhcpstatus );   //显示地址信息
           
-         OSTaskCreate(udp_task,(void*)0,(OS_STK*)&UDP_TASK_STK[UDP_STK_SIZE-1],UDP_TASK_PRIO);//创建UDP服务器任务 
+         OSTaskCreate(tcp_client_task,(void*)0,(OS_STK*)&TCP_CLIENT_TASK_STK[UDP_STK_SIZE-1],TCP_CLIENT_TASK_PRIO);//创建TCP任务 
           
          OSTaskSuspend(OS_PRIO_SELF);       //显示完地址信息后挂起自身任务, 挂起任务会导致立马重新执行一次调度
           
@@ -153,9 +153,10 @@ void display_task(void *pdata)
 
 
 //udp服务器任务
-void udp_task(void *pdata)
+void tcp_client_task(void *pdata)
 {
-   udp_demo_init();
+   tcp_demo_init();
+    
    while(1)
    {
       LED1 = !LED1;

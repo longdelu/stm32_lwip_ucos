@@ -41,11 +41,6 @@
 			<locationURI>copy_PARENT/HARDWARE</locationURI>
 		</link>
 		<link>
-			<name>LWIP</name>
-			<type>2</type>
-			<locationURI>copy_PARENT/LWIP</locationURI>
-		</link>
-		<link>
 			<name>MALLOC</name>
 			<type>2</type>
 			<locationURI>copy_PARENT/MALLOC</locationURI>
@@ -69,6 +64,11 @@
 			<name>USMART</name>
 			<type>2</type>
 			<locationURI>copy_PARENT/USMART</locationURI>
+		</link>
+		<link>
+			<name>lwip_app</name>
+			<type>2</type>
+			<locationURI>PARENT-1-PROJECT_LOC/LWIP/lwip_app</locationURI>
 		</link>
 	</linkedResources>
 	<variableList>

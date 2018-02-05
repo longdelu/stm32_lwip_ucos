@@ -25,8 +25,6 @@
  
 //UDP接收数据缓冲区
 u8 udp_demo_recvbuf[UDP_DEMO_RX_BUFSIZE];   //UDP接收数据缓冲区 
-//UDP发送数据内容
-const u8 *tcp_demo_sendbuf="UDP demo send data\r\n";
 
 /*
  * \brief UDP回调函数
@@ -50,7 +48,7 @@ void udp_demo_init(void)
  
    struct udp_pcb *udp_pcb;
 
-   struct ip_addr   server_ipaddr;  	//开发板本地(ip)服务器ip地址
+//   struct ip_addr   server_ipaddr;  	//开发板本地(ip)服务器ip地址
 
 //   IP4_ADDR(&server_ipaddr,lwipdev.ip[0],lwipdev.ip[1],lwipdev.ip[2],lwipdev.ip[3]);
 
